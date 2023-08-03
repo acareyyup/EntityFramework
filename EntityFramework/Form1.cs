@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityFramework.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace EntityFramework
         public Form1()
         {
             InitializeComponent();
+        }
+
+        ProductDal _productDal = new ProductDal();
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            dgwProducts.DataSource = _productDal.GetAll();
         }
     }
 }

@@ -56,5 +56,12 @@ namespace EntityFramework
             LoadProducts();
             MessageBox.Show("Updated");
         }
+
+        private void dgwProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tbxNameUpdate.Text = dgwProducts.CurrentRow.Cells[1].Value.ToString();
+            tbxUnitPriceUpdate.Text = dgwProducts.CurrentRow.Cells[2].Value.ToString();
+            tbxStockAmountUpdate.Text = dgwProducts.CurrentRow.Cells[3].Value.ToString();
+        }
     }
 }

@@ -43,5 +43,18 @@ namespace EntityFramework
             MessageBox.Show("Added!");
 
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            _productDal.Update(new Product
+            {
+                Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value),
+                Name = tbxNameUpdate.Text,
+                UnitPrice = Convert.ToDecimal(tbxUnitPriceUpdate.Text),
+                StockAmount = Convert.ToInt32(tbxStockAmountUpdate.Text)
+            });
+            LoadProducts();
+            MessageBox.Show("Updated");
+        }
     }
 }

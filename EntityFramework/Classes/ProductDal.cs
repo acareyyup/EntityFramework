@@ -29,6 +29,16 @@ namespace EntityFramework.Classes
             }
         }
 
+        public void Update(Product product)
+        {
+            using (ETradeContext context = new ETradeContext())
+            {
+                var entity = context.Entry(product);
+                entity.State = EntityState.Modified;
+                context.SaveChanges();
+
+            }
+        }
 
 
     }

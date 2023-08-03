@@ -30,6 +30,11 @@ namespace EntityFramework
             dgwProducts.DataSource = _productDal.GetAll();
         }
 
+        private void SearchProducts(String key)
+        {
+            dgwProducts.DataSource = _productDal.GetByName(key);
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
@@ -74,6 +79,11 @@ namespace EntityFramework
             });
             LoadProducts();
             MessageBox.Show("Deleted");
+        }
+
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+            SearchProducts(tbxSearch.Text);
         }
     }
 }

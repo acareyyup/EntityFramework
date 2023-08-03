@@ -16,6 +16,13 @@ namespace EntityFramework.Classes
                 return context.products.ToList();
             }
         }
+        public List<Product> GetByName(String key)
+        {
+            using (ETradeContext context = new ETradeContext())
+            {
+                return context.products.Where(p=>p.Name.Contains(key)).ToList();
+            }
+        }
 
         public void Add(Product product)
         {

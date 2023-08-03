@@ -41,5 +41,16 @@ namespace EntityFramework.Classes
         }
 
 
+        public void Delete(Product product)
+        {
+            using (ETradeContext context = new ETradeContext())
+            {
+                var entity = context.Entry(product);
+                entity.State = EntityState.Deleted;
+                context.SaveChanges();
+
+            }
+        }
+
     }
 }

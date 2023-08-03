@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -62,6 +63,17 @@ namespace EntityFramework
             tbxNameUpdate.Text = dgwProducts.CurrentRow.Cells[1].Value.ToString();
             tbxUnitPriceUpdate.Text = dgwProducts.CurrentRow.Cells[2].Value.ToString();
             tbxStockAmountUpdate.Text = dgwProducts.CurrentRow.Cells[3].Value.ToString();
+        }
+
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            _productDal.Delete(new Product
+            {
+                Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value)
+            });
+            LoadProducts();
+            MessageBox.Show("Deleted");
         }
     }
 }

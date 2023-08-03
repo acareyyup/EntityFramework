@@ -1,4 +1,4 @@
-# EntityFramework
+EntityFramework
 Entity Framework kullanarak bir Windows Forms uygulamasında veritabanı işlemleri  CRUD (Oluştur, Oku, Güncelle, Sil) işlemlerini gerçekleştirdim.
 
 

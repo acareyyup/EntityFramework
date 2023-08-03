@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,20 @@ namespace EntityFramework.Classes
                 return context.products.ToList();
             }
         }
+
+        public void Add(Product product)
+        {
+            using (ETradeContext context = new ETradeContext())
+            {
+                //context.products.Add(product);
+                var entity = context.Entry(product);
+                entity.State = EntityState.Added;
+                context.SaveChanges();
+
+            }
+        }
+
+
 
     }
 }
